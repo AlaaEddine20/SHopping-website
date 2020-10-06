@@ -7,7 +7,14 @@
     <title id="title">Document</title>
   </head>
   <body onload="addAlert()">
-    <h1><center>Game deals</center></h1>
+    <h1
+      id="red-color"
+      onmouseover="changeHeader()"
+      onmouseover="changeHeader()"
+      class="header"
+    >
+      Game deals
+    </h1>
     <table id="Main-Table">
       <th>Ghost of Tsushima</th>
       <th>Assassin's Creed Origins</th>
@@ -89,9 +96,22 @@
         document.getElementById("title").innerHTML = newTitle;
       };
 
-      changeTitle("Title changed!");
+      function changeHeader() {
+        let header = document.querySelector("h1");
+        header.innerText = "Changed the header!";
+        document.addEventListener("mouseover", function () {
+          document.getElementById("red-color").style.color = "red";
+          document.addEventListener("mouseover", function () {
+            document.getElementById("red-color").style.color = "black";
+          });
+        });
+      }
+      changeHeader();
 
-      const addClassToTitle = function (newHeader) {};
+      const removeClassFromTitle = function () {
+        let removeClassTitle = document.getElementById("red-color");
+        removeClassFromTitle.classList.remove("header");
+      };
     </script>
   </body>
 </html>
